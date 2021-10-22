@@ -1,0 +1,50 @@
+{
+  "name": "christmas_gift_exchange",
+  "version": "1.0.0",
+  "description": "Keepting track of secret Santa each year",
+  "main": "index.js",
+  "engines": {
+    "node": "8.10.0"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "devList": "forever list",
+    "devStart": "forever start --id 'server' app.js && gulp watch",
+    "devStop": "forever stop 'server' && npm run devList",
+    "start": "node app.js",
+    "test": "gulp test",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "christmas_gift_exchange"
+  },
+  "keywords": [
+    "christmas",
+    "gift",
+    "login"
+  ],
+  "author": "Kristin Taber",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "browserify": "^14.4.0",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "rgb-hex": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.3.4",
+    "forever": "^0.15.3",
+    "gulp": "^4.0.2",
+    "gulp-mocha": "^4.3.1",
+    "gulp-standard": "^10.1.1",
+    "less": "^2.7.3",
+    "require-dir": "^0.3.2",
+    "sinon": "^4.5.0",
+    "stripify": "^6.0.0",
+    "through2": "^2.0.5"
+  },
+  "optionalDependencies": {}
+}
