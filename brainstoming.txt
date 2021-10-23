@@ -1,3 +1,23 @@
+Name matching algorithm
+	Not spouse
+	Not previous year
+	Not self
+	No duplicate matches in a set
+
+Files
+	Relationships/name list
+	(output, encrypted?) matches
+	Email list
+
+Sending email
+	Use attached file?
+	Kira?--send to Mark?
+	coding: https://realpython.com/python-send-email/#sending-a-plain-text-email
+
+
+***********************************************************************
+WEBSITE
+***********************************************************************
 Interface
 	Need tab icon
 	Main page:
@@ -13,12 +33,6 @@ Interface
 		(log out)
 
 
-Name matching algorithm
-	Not spouse
-	Not previous year
-	Not self
-	No duplicate matches in a set
-
 Login
 	Select your name if not set up?
 	Default password for not set up?
@@ -27,8 +41,8 @@ Email
 	Can enter your email after login
 		password reset
 		opt to be sent your person
-			checkbox: yearly
-			buttons: send email, update and send, just update preference
+			checkboxes: yearly, reminder
+			button: update preference
 
 Admin account or automatic generation?
 	Add people via code or admin account?

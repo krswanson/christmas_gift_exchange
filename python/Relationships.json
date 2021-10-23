@@ -1,0 +1,18 @@
+{"people": [
+	{"Kristin": ["Kirk"]},
+	{"Kirk": ["Kristin"]},
+	{"Kira": ["Mark"]},
+	{"Mark": ["Kira"]},
+	{"Maegan": ["Garrett"]},
+	{"Garrett": ["Meagan"]},
+	{"Elva": ["Jimmy"]},
+	{"Jimmy": ["Elva"]},
+	{"Dayna": ["Steve"]},
+	{"Steve": ["Dayna"]},
+	{"Victor": []},
+	{"Jamas": []},
+	{"Jerad": []},
+	{"David": []},
+	{"Jenny": []},
+	{"Jessie": []}
+]}
