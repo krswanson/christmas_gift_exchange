@@ -1,0 +1,46 @@
+Interface
+	Need tab icon
+	Main page:
+		Instructions
+		Login (name, password)
+	Forgot password
+		Instructions
+		Enter email
+	Account page
+		Curent person
+		Set up/change email/request new email (see below)
+		Change password
+		(log out)
+
+
+Name matching algorithm
+	Not spouse
+	Not previous year
+	Not self
+	No duplicate matches in a set
+
+Login
+	Select your name if not set up?
+	Default password for not set up?
+
+Email
+	Can enter your email after login
+		password reset
+		opt to be sent your person
+			checkbox: yearly
+			buttons: send email, update and send, just update preference
+
+Admin account or automatic generation?
+	Add people via code or admin account?
+
+
+Other account options
+	Request to swap?
+	Show previous years' people
+	Place for notes (such as gift ideas)?
+
+Files or database?
+	file for relationships (spouses)
+	file for current name-to-name list
+	file for names/passords/emails
+	file for email preferences?
