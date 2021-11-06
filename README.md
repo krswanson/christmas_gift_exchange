@@ -1,8 +1,11 @@
 # Christmas Gift Exchange
 
-A website in development for my family's yearly secret Santa random drawing
+An app in development for my family's yearly secret Santa random drawing.  It will create the matches and send emails with people's Christmas matches, possibility of adding a website too. 
 
 ## Install and run locally
+
+For sending from gmail account, see app passwords:
+https://support.google.com/accounts/answer/185833
 
 ```sh
 cd christmas_gift_exchange
