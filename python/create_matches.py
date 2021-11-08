@@ -1,5 +1,6 @@
 import json
 import random
+import os
 
 def index_shuffle(l):
 	indexes = list(range(len(l)))
@@ -18,25 +19,29 @@ def new_index_order(l):
 				new_order = index_shuffle(l)
 	return new_order
 
+def create_matches(filename):
+	dirname = os.path.dirname(__file__)
+	file = os.path.join(dirname, filename)
+	f = open(file, "r")
+	people_json = f.read()
+	f.close()
+	people_rela = json.loads(people_json)["people"]
 
-f = open("relationships.json", "r")
-people_json = f.read()
-f.close()
-people_rela = json.loads(people_json)["people"]
-
-# Reshuffle until no invalid matches are created
-while True:
-	new_order = new_index_order(people_rela)
-	matches = {}
-	done = True
-	for i, rela in enumerate(people_rela):
-		person = list(rela.keys())[0]
-		match = list(people_rela[new_order[i]].keys())[0]
-		if match in rela[person]:
-			print(person, match)
-			done = False
+	# Reshuffle until no invalid matches are created
+	while True:
+		new_order = new_index_order(people_rela)
+		matches = {}
+		done = True
+		for i, rela in enumerate(people_rela):
+			person = list(rela.keys())[0]
+			match = list(people_rela[new_order[i]].keys())[0]
+			email = rela["email"]
+			if match in rela[person]:
+				done = False
+				break
+			matches[person] = {"match": match, "email": email}
+		if done:
 			break
-		matches[person] = match
-	if done:
-		break
-print(matches)
+	return matches
+#matches = create_matches('relationships.json')
+#print(matches)
