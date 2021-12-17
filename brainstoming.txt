@@ -8,6 +8,10 @@ Files
 	Relationships/name list
 	(output, encrypted?) matches
 	Email list
+	create_matches (add getting previous year)
+	load_emails?
+	create_and_send_emails
+	send_reminder_emails
 
 Sending email
 	Use attached file?
