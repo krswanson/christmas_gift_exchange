@@ -1,14 +1,18 @@
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from create_matches import create_matches, get_json_file
+from create_matches import get_json_file
 
 year = input("Which Christmas year is this for? ")
-password = input("Type your password and press enter: ")
-
-matches = create_matches("matches_" + str(int(year) - 1) + ".json")
+try:
+	matches = get_json_file("matches_" + year + ".json")
+except FileNotFoundError:
+	print("No data file found for", year)
+	print("Use save_matches.py to create one")
+	exit(0)
 emails = get_json_file("emails.json")
 
+password = input("Type your password and press enter: ")
 sender_email = "krswanson95008@gmail.com"  # Enter your address
 messages = []
 for name in matches.keys():
