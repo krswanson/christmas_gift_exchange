@@ -17,7 +17,7 @@ sender_email = "krswanson95008@gmail.com"  # Enter your address
 messages = []
 for name in matches.keys():
 	match = matches[name]
-	receiver_email = emails[name] # "kristin.l.swanson@att.net" 
+	receiver_email = "4085687250@vtext.com" #emails[name] # "kristin.l.swanson@att.net"
 	
 	message = MIMEMultipart("alternative")
 	message["Subject"] = "Your person for Christmas " + year
@@ -26,10 +26,10 @@ for name in matches.keys():
 
 	# Create the plain-text and HTML version of your message
 	text = """\
-	Hello {0},
-	
-	This year you will be buying for: {1}
-	""".format(name, match)
+Hello {0},
+
+This year you will be buying for: {1}
+""".format(name, match)
 	html = """\
 	<html>
 	  <body>
@@ -48,14 +48,19 @@ for name in matches.keys():
 	# The email client will try to render the last part first
 	message.attach(part1)
 	message.attach(part2)
+	messages.append(message)
 
 port = 465  # For SSL
 smtp_server = "smtp.gmail.com"
 
 # Create secure connection with server and send email
-# context = ssl.create_default_context()
-# with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-#     server.login(sender_email, password)
-#     server.sendmail(
-#         sender_email, receiver_email, message.as_string()
-#     )
+context = ssl.create_default_context()
+with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+	server.login(sender_email, password)
+	for message in messages:
+		receiver_email = message["To"]
+		server.sendmail(
+			sender_email, receiver_email, message.as_string()
+		)
+		print("Email sent to", receiver_email)
+		break
