@@ -1,7 +1,9 @@
 import smtplib, ssl
+import copy
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from create_matches import get_json_file
+from create_messages import *
 
 year = input("Which Christmas year is this for? ")
 try:
@@ -17,29 +19,15 @@ sender_email = "krswanson95008@gmail.com"  # Enter your address
 messages = []
 for name in matches.keys():
 	match = matches[name]
-	receiver_email = "4085687250@vtext.com" #emails[name] # "kristin.l.swanson@att.net"
-	
+	receiver_email = emails[name] # "kristin.l.swanson@att.net"
+
 	message = MIMEMultipart("alternative")
 	message["Subject"] = "Your person for Christmas " + year
 	message["From"] = "Christmas Gift Exchange <" + sender_email + ">"
-	message["To"] = receiver_email
 
 	# Create the plain-text and HTML version of your message
-	text = """\
-Hello {0},
+	text, html = test_messages(name)
 
-This year you will be buying for: {1}
-""".format(name, match)
-	html = """\
-	<html>
-	  <body>
-	    <p>Hello {0},<br>
-	       This year you will be buying for: {1}<br>
-	    </p>
-	  </body>
-	</html>
-	""".format(name, match)
-	
 	# Turn these into plain/html MIMEText objects
 	part1 = MIMEText(text, "plain")
 	part2 = MIMEText(html, "html")
@@ -48,7 +36,16 @@ This year you will be buying for: {1}
 	# The email client will try to render the last part first
 	message.attach(part1)
 	message.attach(part2)
-	messages.append(message)
+
+	# Send to multiple places for same person if needed
+	if type(receiver_email) is list:
+		for email in receiver_email:
+			m_copy = copy.deepcopy(message)
+			m_copy["To"] = email
+			messages.append(m_copy)
+	else:
+		message["To"] = receiver_email
+		messages.append(message)
 
 port = 465  # For SSL
 smtp_server = "smtp.gmail.com"
