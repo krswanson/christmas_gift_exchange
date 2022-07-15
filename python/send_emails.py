@@ -14,10 +14,16 @@ except FileNotFoundError:
 	exit(0)
 emails = get_json_file("emails.json")
 
+group = input("Who do you want to send to? (all/[first names]): ")
+group = group.split()
 password = input("Type your password and press enter: ")
-sender_email = "krswanson95008@gmail.com"  # Enter your address
+
+sender_email = "taber.christmas.gift.exchange@gmail.com"  # Enter your address
 messages = []
 for name in matches.keys():
+	# Only create email for desired group of people
+	if "all" not in group and name not in group:
+		continue
 	match = matches[name]
 	receiver_email = emails[name] # "kristin.l.swanson@att.net"
 
@@ -26,7 +32,8 @@ for name in matches.keys():
 	message["From"] = "Christmas Gift Exchange <" + sender_email + ">"
 
 	# Create the plain-text and HTML version of your message
-	text, html = test_messages(name)
+	text, html = match_messages(name, match)
+	#text, html = test_messages(name)
 
 	# Turn these into plain/html MIMEText objects
 	part1 = MIMEText(text, "plain")
@@ -52,6 +59,7 @@ smtp_server = "smtp.gmail.com"
 
 # Create secure connection with server and send email
 context = ssl.create_default_context()
+print("\n This may take a few moments...\n")
 with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
 	server.login(sender_email, password)
 	for message in messages:
@@ -59,5 +67,5 @@ with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
 		server.sendmail(
 			sender_email, receiver_email, message.as_string()
 		)
-		print("Email sent to", receiver_email)
-		break
+		print(" Message sent to", receiver_email)
+print("\n", len(messages), "message(s) sent")

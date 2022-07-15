@@ -14,10 +14,14 @@ Files
 	send_reminder_emails
 
 Sending email
-	Use attached file?
-	Kira?--send to Mark?
 	coding: https://realpython.com/python-send-email/#sending-a-plain-text-email
 
+New features
+	FIX JARED NAME??
+	Don't error if no previous year file (save_matches)
+	Move prompts to send_emails for 'all' to settings but ask y/n if they want what is set
+	Figure out settings.json -> need test/match/reminder message options
+	Add tests
 
 ***********************************************************************
 WEBSITE
