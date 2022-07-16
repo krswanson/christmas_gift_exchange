@@ -1,3 +1,11 @@
+def create_messages(message_type, name, match="[unset]"):
+	if message_type == "test":
+		return test_messages(name)
+	elif message_type == "match":
+		return match_messages(name, match)
+	else:
+		return "", ""
+
 def match_messages(name, match):
 	text = """\
 Hello {0},

@@ -14,15 +14,20 @@ When prompted, enter the year it is for (currently, you need a previous year fil
 
 Use the emails.json file to store the email addresses (or phone numbers with carrier domains, see: https://dev.to/mraza007/sending-sms-using-python-jkd ) to use for each person.
 
+Set the settings.json file with your information, 
+choosing "test" or "match" for the message_type
+
+The password when sending from a gmail acount should be an app password, to generate and use an app password see:
+https://support.google.com/accounts/answer/185833
+
 When ready to send the batch of emails, do:
 
 ```sh
 python send_emails.py
 ```
-Again, entering the current year (corresponding to the match file) to use.
 
-You will also need to input the password for the sender email; for sending from a gmail account, generate and use an app password:
-https://support.google.com/accounts/answer/185833
+When prompted, either type simply `all`, or to sent to one or more specific people, type each name, sparated by commas.
+
 
 
 ## Website install

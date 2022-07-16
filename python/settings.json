@@ -1,0 +1,8 @@
+{
+	"year": "2022",
+	"message_type": "match",
+	"sender": "",
+	"password": "",
+	"relationships_file": "Relationships.json",
+	"contacts_file": "emails.json"
+}
