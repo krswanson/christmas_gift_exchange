@@ -26,7 +26,7 @@ When ready to send the batch of emails, do:
 python send_emails.py
 ```
 
-When prompted, either type simply `all`, or to sent to one or more specific people, type each name, sparated by commas.
+When prompted, either type simply `all`, or to send to one or more specific people, type each name, sparated by commas.
 
 
 
