@@ -3,6 +3,8 @@ def create_messages(message_type, name, match="[unset]"):
 		return test_messages(name)
 	elif message_type == "match":
 		return match_messages(name, match)
+	elif message_type == "reminder":
+		return reminder_messages(name, match)
 	else:
 		return "", ""
 
@@ -22,6 +24,25 @@ This year you will be buying for: {1}
 	</html>
 	""".format(name, match)
 	return text, html
+
+
+def reminder_messages(name, match):
+	text = """\
+Hello {0},
+
+This is a reminder that this year you will be buying for: {1}
+""".format(name, match)
+	html = """\
+	<html>
+	  <body>
+	    <p>Hello {0},<br>
+	       This is a reminder that this year you will be buying for: {1}<br>
+	    </p>
+	  </body>
+	</html>
+	""".format(name, match)
+	return text, html
+
 
 def test_messages(name):
 	text = """\
