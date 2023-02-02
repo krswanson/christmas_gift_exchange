@@ -28,12 +28,14 @@ def get_json_file(filename):
 	json_dict = json.loads(json_str)
 	return json_dict
 
-def create_matches(matchfile):
-	rela_dict = get_json_file("relationships.json")
+def create_matches(relationships_file, dont_match_files):
+	rela_dict = get_json_file(relationships_file)
 	original_names_list = list(rela_dict.keys())
-	old_matches = get_json_file(matchfile)
-	for name in original_names_list:
-		rela_dict[name].append(old_matches[name])
+	# Add any number of previous years' people to not match with
+	for file in dont_match_files:
+		old_matches = get_json_file(file)
+		for name in original_names_list:
+			rela_dict[name].append(old_matches[name])
 
 	# Reshuffle until no invalid matches are created
 	while True:
@@ -50,5 +52,6 @@ def create_matches(matchfile):
 		if done:
 			break
 	return matches
-#matches = create_matches('matches_2021.json')
+
+#matches = create_matches("Relationships.json", ["matches_2021.json", "matches_2022.json"])
 #print(matches)
