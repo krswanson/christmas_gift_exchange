@@ -7,11 +7,17 @@ An app in development for my family's yearly secret Santa random drawing.  It wi
 This is where you set the specifics of your situation, for simplicity, all values are strings.
 
 **year** - the year you are generating matches for
+
 **years_back** - the number of years back you want to exclude previous matches (0 if no previous years)
+
 **message_type** - options are: "match", "reminder", and "test"
+
 **sender** - the email address you want to send from
+
 **password** - the sender email password (or app password, see Sending emails below)
+
 **relationships_file** - the name of the json file with the keys being the names of the people to include in the drawing, with the values being a list of people they should not be matched with (which can be an empty list)
+
 **contacts_file** - name of the json file with the keys being the names of the people and the values being either a string or list of strings of their email or text message addresses (see Sending emails/texts for more details)
 
 ## Generating matches
