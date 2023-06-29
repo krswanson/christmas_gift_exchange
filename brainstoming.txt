@@ -17,7 +17,7 @@ Sending email
 	coding: https://realpython.com/python-send-email/#sending-a-plain-text-email
 
 New features
-	Go back 2 years
+	Query specific people or swap/add people (done?)
 	Don't error if no previous year file (save_matches)
 	Add tests
 
