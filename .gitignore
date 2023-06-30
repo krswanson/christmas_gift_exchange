@@ -4,3 +4,4 @@ dist/
 *.log
 package-lock.json
 python/__pycache__/
+python/backup_emails.json

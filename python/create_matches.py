@@ -35,8 +35,10 @@ def create_matches(relationships_file, dont_match_files):
 	for file in dont_match_files:
 		old_matches = get_json_file(file)
 		for name in original_names_list:
-			rela_dict[name].append(old_matches[name])
-
+			if name in old_matches:
+				rela_dict[name].append(old_matches[name])
+			else:
+				print("Warning:", name, "not included in", file)
 	# Reshuffle until no invalid matches are created
 	while True:
 		new_order = new_index_order(original_names_list)

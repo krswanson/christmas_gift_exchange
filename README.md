@@ -35,8 +35,8 @@ Use your contacts_file to store the email addresses (or phone numbers with carri
 Set the settings.json file with your information, 
 choosing "test", "match", or "reminder" for the message_type
 
-The password when sending from a gmail acount should be an app password, to generate and use an app password see:
-https://support.google.com/accounts/answer/185833
+The password when sending from a gmail acount should be an app password, to generate and use an app password you need 2 step verification on, then go to:
+Manage your Google accout > Security > 2-Step-Verification > App Passwords
 
 When ready to send the batch of emails, do:
 
